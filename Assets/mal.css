@@ -107,39 +107,11 @@
 \*------------------------------*/
 
 /*------------------------------*\
-|*  Category-Coloured  Info BG  *|
-|* - - - - -  V1.2.0  - - - - - *|
-\* - - - - - - - - - - - - - - -*/
-
-.data.watching ~ .title,
-.data.reading ~ .title:hover {
-  opacity: 0;
-  background: hsla(var(--current), var(--infoBGOpacity));
-}
-.data.completed ~ .title {
-  opacity: 0;
-  background: hsla(var(--completed), var(--infoBGOpacity));
-}
-.data.onhold ~ .title {
-  opacity: 0;
-  background: hsla(var(--paused), var(--infoBGOpacity));
-}
-.data.dropped ~ .title {
-  opacity: 0;
-  background: hsla(var(--dropped), var(--infoBGOpacity));
-}
-.data.plantowatch ~ .title,
-.data.plantoread ~ .title {
-  opacity: 0;
-  background: hsla(var(--planned), var(--infoBGOpacity));
-}
-
-/*------------------------------*\
 |*  Hide Hentai Covers  Custom  *|
 \* - - - - - - - - - - - - - - -*/
 
 .data.number {
-    z-index: 10;
+  z-index: 10;
 }
 
 .data.tags {
@@ -184,7 +156,7 @@
 	width: 210px;
 	height: 300px;
 	/* Change background image HERE */
-	background: url(https://tama47.github.io/MyAnimeList/image.png) no-repeat center / cover hsla(var(--btn), 90%);
+	background: url(https://tama47.github.io/MyAnimeList/Assets/image.png) no-repeat center / cover hsla(var(--btn), 90%);
 	border-radius: 6px;
 	opacity: 1;
 	transition: opacity calc(var(--timeItem) * 1.5) var(--bezierFast);
@@ -192,6 +164,20 @@
 } .list-item:hover .data.tags a[href$="tag=Hentai"]::before,
 .list-item:focus-within .data.tags a[href$="tag=Hentai"]::before {
 	opacity: 0;
+}
+
+/*--------------------------------*\
+|*  Category-Transparent Info BG  *|
+\* - - - - - - - - - - - - - - - -*/
+
+.data.watching ~ .title,
+.data.reading ~ .title,
+.data.completed ~ .title,
+.data.onhold ~ .title,
+.data.dropped ~ .title,
+.data.plantowatch ~ .title,
+.data.plantoread ~ .title {
+  opacity: 0;
 }
 
 /*------------------------------*\
@@ -203,7 +189,7 @@ body.ownlist {
   background-image: initial !important;
 }
 .header {
-  z-index: 10;
+  display: none;
 }
 
 /* Dark Mode Filter Fix */
@@ -235,8 +221,8 @@ body {
 .list-table .list-table-header .header-title a:hover {
 	color: hsl(var(--accent)) !important;
 }
-.notes:hover {
-	color: hsl(var(--accent)) !important;
+.notes::before:hover {
+  color: hsl(var(--accent));
 }
 
 /* Remove banner effects */
