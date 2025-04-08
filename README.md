@@ -41,6 +41,7 @@ mkdir -p "$anime_dir"
 cd "$anime_dir" || exit
 
 # Download file and rename it
+# curl -o dataimagelink.css https://malscraper.azurewebsites.net/covers/anime/Tama47_/presets/dataimagelink
 curl -o dataimagelink.css https://covers.pages.dev/css/anime_dataimagelink.webp.css
 
 # Replace image links in file
@@ -56,7 +57,8 @@ mkdir -p "$manga_dir"
 cd "$manga_dir" || exit
 
 # Download file and rename it
-curl -o dataimagelink.css https://malscraper.azurewebsites.net/covers/manga/Tama47_/presets/dataimagelink
+# curl -o dataimagelink.css https://malscraper.azurewebsites.net/covers/manga/Tama47_/presets/dataimagelink
+curl -o dataimagelink.css https://covers.pages.dev/css/manga_dataimagelink.webp.css
 
 # Replace image links in file
 sed -i '' 's/\.webp/l.webp/g' dataimagelink.css
