@@ -1,0 +1,25 @@
+name: Update Anime/Manga Covers
+
+on:
+  schedule:
+    # Run at 00:00 UTC on the 1st of every month
+    - cron: "0 0 1 * *"
+  workflow_dispatch: # allow manual run from GitHub UI
+
+jobs:
+  run-script:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Run update script
+        run: bash update.sh
+
+      - name: Commit and push changes
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "Auto-update covers ($(date -u))" || echo "No changes to commit"
+          git push
